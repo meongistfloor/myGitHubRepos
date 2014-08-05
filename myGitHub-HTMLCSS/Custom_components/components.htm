@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="css/temp.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<link href="css/default.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="script/component.js"></script>
+<meta charset="utf-8" />
+<!-- This is for mobile devices -->
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<script type="text/javascript">
+		var c=0
+		var t
+		var total = 200;
+		function stopCount(){
+			clearTimeout(t);
+			c=1;
+		}
+		
+		function timedCount(){
+			c=c+1
+
+			if(c / total * 100 <= 100)
+			{
+				pCounterElem = document.getElementById("progress-current");
+				pTotalElem = document.getElementById("progress-total");
+				pPrefixElem = document.getElementById("progress-counter-prefix");
+				pSuffixElem = document.getElementById("progress-counter-suffix");
+				
+				progressUpdate(pPrefixElem, pSuffixElem, "Updating Address Book:", "pages", pCounterElem, pTotalElem, c, total);
+				
+				$(function() {
+			    $( "#progressbar" ).progressbar({
+			      value: c / total * 100 -2
+			    });
+			  });
+				
+				t=setTimeout("timedCount()",1000);
+			}
+			else{stopCount();}
+		}
+  </script>
+</head>
+<body>
+<p>
+<h1>Checkbox States</h1>
+<div class="checkbox-group-h">
+  <div class="field-label">Checkbox Horizontal:</div>
+  <div>
+    <input type="checkbox" id="cb1" />
+    <label for="cb1"/></label>
+    <label>Regular</label>
+  </div>
+  <div>
+    <input type="checkbox" id="cb2" />
+    <label for="cb2"></label>
+    <label>Regular 2</label>
+  </div>
+  <div>
+    <input type="checkbox" id="cb3" onClick="triState(this)"/>
+    <label for="cb3"></label>
+    <label>Tri-state</label>
+  </div>
+  <div>
+    <input type="checkbox" id="cb4" disabled/>
+    <label for="cb4"></label>
+    <label>Disabled</label>
+  </div>
+</div>
+<br/>
+<br/>
+<div class="checkbox-group-v">
+  <div class="field-label">Checkbox Vertical:</div>
+  <div>
+    <input type="checkbox" id="cb1a" />
+    <label for="cb1a"/>
+    </label>
+    <label>Regular</label>
+  </div>
+  <div>
+    <input type="checkbox" id="cb2a" />
+    <label for="cb2a"></label>
+    <label>Regular 2</label>
+  </div>
+  <div>
+    <input type="checkbox" id="cb3a" onClick="triState(this)"/>
+    <label for="cb3a"></label>
+    <label>Tri-state</label>
+  </div>
+  <div>
+    <input type="checkbox" id="cb4a" disabled/>
+    <label for="cb4a"></label>
+    <label>Disabled</label>
+  </div>
+</div>
+</p>
+<p>
+<h1>Radio Button States</h1>
+<div class="radio-group-h" id="test">
+  <div class="field-label">Radio Horizontal:</div>
+  <div>
+    <input type="radio" id="rb1" name="rbgroup1"/>
+    <label for="rb1"/>
+    </label>
+    <label>Regular</label>
+  </div>
+  <div>
+    <input type="radio" id="rb2" name="rbgroup1" />
+    <label for="rb2"></label>
+    <label>Regular 2</label>
+  </div>
+  <div>
+    <input type="radio" id="rb3" name="rbgroup1" disabled/>
+    <label for="rb4"></label>
+    <label>Disabled</label>
+  </div>
+  <div>
+    <input type="radio" id="rb4" name="rbgroup1"/>
+    <label for="rb4"></label>
+    <label>Custom</label>
+    <input type="text" id="rbgroup1Custom" name="rbgroup1" disabled="disabled"/>
+  </div>
+</div>
+<br/>
+<br/>
+<div class="radio-group-v">
+  <div class="field-label">Radio Vertical:</div>
+  <div>
+    <input type="radio" id="rb1a" name="rbgroup2" />
+    <label for="rb1a"/>
+    </label>
+    <label>Regular</label>
+  </div>
+  <div>
+    <input type="radio" id="rb2a" name="rbgroup2" />
+    <label for="rb2a"></label>
+    <label>Regular 2</label>
+  </div>
+  <div>
+    <input type="radio" id="rb3a" name="rbgroup2" disabled/>
+    <label for="rb3a"></label>
+    <label>Disabled</label>
+  </div>
+  <div>
+    <input type="radio" id="rb4a" name="rbgroup2"/>
+    <label for="rb4a"></label>
+    <label>Custom</label>
+    <input type="text" id="rbgroup2Custom" name="rbgroup2" disabled="disabled"/>
+  </div>
+</div>
+</p>
+<p>
+<h1>Progress Indicators</h1>
+<table width="50%">
+  <tr>
+    <td class="tmpProgressIndicatorCell"><div class="progress-indicator">Updating Address Book...</div></td>
+  </tr>
+  <tr>
+    <td class="tmpProgressIndicatorCell"><div class="progress-indicator"><span id="progress-counter-prefix">Progress counter prefix:</span> <span id="progress-current">0</span> / <span id="progress-total">0</span> <span id="progress-counter-suffix">group</span> complete.</div></td>
+  </tr>
+  <tr>
+    <td class="tmpProgressIndicatorCell"><div class="progress-indicator">Updating address book
+        <div id="progressbar"></div>
+      </div></td>
+  </tr>
+  <tr>
+    <td class="tmpProgressIndicatorCell"><div class="progress-indicator"><img src="images/circular-progress.gif"/>Updating address book</div></td>
+  </tr>
+  <tr>
+    <td ><input type="submit" value="Click to start progress bar demo" onClick="timedCount();"/>
+    </td>
+  </tr>
+</table>
+</p>
+</body>
+</html>

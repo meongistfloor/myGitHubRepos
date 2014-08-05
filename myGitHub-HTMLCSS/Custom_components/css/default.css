@@ -1,0 +1,268 @@
+	/** Import FontAwesome css for styles including 'content' **/
+	@import url("../lib/FontAwesome/css/font-awesome.min.css");
+	
+	@variables {
+  ActiveColor: #6391E4;
+}
+	
+	BODY{
+		font-family: Arial;	
+		font-size: 12pt;	
+		color: #58595B;
+	}
+	
+	H1{
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;	
+		font-weight: 300;
+		color: #38393B;
+	}
+	
+	TD{ vertical-align: top; }
+	
+  /******************* Input Fields **********************/
+  
+  input{
+  	height: 26px;
+  	box-shadow:inset 2px 2px 9px -3px #999;
+    -webkit-box-shadow:inset 2px 2px 7px 0px #bbb;
+    -moz-box-shadow:inset 2px 2px 9px -3px #999;    
+    border: 1pt solid #eeeeee; 
+    padding: 0 10px 0 10px;
+    font-size: 12pt;
+    font-weight: 300;
+  }
+  
+  input:active, input:hover, input:focus{
+  	border: 1pt solid rgba(161, 189, 239, 1);
+  	/**border: 1pt solid #6391E4;**/  	
+  	/**outline:0;**/
+  }
+  
+  
+	
+	/********** Checkboxes and Radio Buttons **********************/ 	
+	 
+	input[type="checkbox"], input[type="radio"] { display: none; }
+	 
+	input[type="checkbox"] + label, input[type="radio"] + label {
+	    background-color: #fafafa;
+	    border: 1px solid #999999;
+	    box-shadow: 0 2px 1px -1px rgba(0,0,0,0.4),  inset 0px -8px 10px -10px rgba(0,0,0,0.7);
+	    padding: 8px;
+	    display: inline-block;
+	    position: relative;
+	    /**vertical-align:middle;**/
+	}
+	
+	input[type="radio"] + label {vertical-align:middle; top:-2px;}
+	
+	input[type="checkbox"] + label:hover, input[type="checkbox"]+ label:active, 
+	input[type="radio"] + label:hover, input[type="radio"]+ label:active, input[type="radio"]:checked + label:active{
+	    box-shadow:inset 0px 8px 10px -10px rgba(0,0,0,0.7);
+	    border: 1px solid #6391E4;
+	}
+	
+	input[type="checkbox"]:checked + label, input[type="checkbox"]:checked + label:active {
+			padding: 9px;
+		  border: none;
+	    background-color: #71a3ff;
+	    box-shadow: inset 0px 2px 2px -1px rgba(0,0,0,0.5), inset 0px 1px 2px -1px rgba(0,0,0,0.1);
+	}
+	 
+	input[type="checkbox"]:checked + label:after {
+				font-family: 'FontAwesome';
+	    content: '\f00c'; 
+	    text-shadow: #555 0.07em 0.07em 0.05em;	
+	    font-size: 16px;
+	    position: absolute;
+	    left:0.07em;
+	    top:0.06em;
+	    color: #ffffff;
+	}
+	
+	input[type="checkbox"]:indeterminate + label{ box-shadow:inset 0px 8px 10px -10px rgba(0,0,0,0.7); }
+	
+	input[type="checkbox"]:indeterminate + label:after {
+			font-family: 'FontAwesome';
+	    content: '\f04d';
+			font-size: 14px;
+	    color: #71a3ff;    
+	    position: absolute;    
+	    left:0.15em;
+	    top:1px;
+	}
+	
+	input[type="checkbox"]:indeterminate + label:hover {border: 1px solid #6391E4;}
+	
+	input[type="checkbox"]:disabled + label, input[type="checkbox"]:disabled + label, 
+	input[type="radio"]:disabled + label, input[type="radio"]:disabled + label{
+			box-shadow: 0 0 0;
+			background-color: #CFCFCF;
+			border: 1px solid #CFCFCF;
+	}
+	
+	input[type="radio"] + label + label {
+			padding: 0 0 0 8px;
+			top:50%;
+	}
+	
+		input[type="checkbox"] + label + label {
+			padding: 0 0 0 8px;
+			vertical-align:top;
+	}
+	
+	input[type="checkbox"]:disabled + label + label, input[type="radio"]:disabled + label + label {	color: #939698;}
+	
+	input[type="radio"] + label {
+	    -webkit-appearance: none;
+	    box-shadow: 0 1px 1px -1px rgba(0,0,0,0.5),  inset 0px -8px 10px -10px rgba(0,0,0,0.7);
+	    padding: 8px;
+	    border-radius: 50px;
+	}
+	
+	input[type="radio"]:checked + label:after {
+	    content: ' ';
+	    width: 10px;
+	    height: 10px;
+	    border-radius: 50px;
+	    position: absolute;
+	    background-color: #ffffff;
+	    box-shadow: inset 0px -2px 3px -1px rgba(0,0,0,0.6);
+	    left: 0.1em;
+	    top: 3px;
+	    font-size: 32px;
+	    border: 0.8pt solid #777;
+	}
+	 
+	input[type="radio"]:checked + label {
+		  border: none;
+			padding: 9px;
+	    background-color: #71a3ff;
+	    box-shadow: inset 0px 2px 2px -1px rgba(0,0,0,0.5), inset 0px 1px 2px -1px rgba(0,0,0,0.1)
+	}
+	/**
+	input[type="radio"] + label + label + input[id$='Custom'] { display:none;}
+	input[type="radio"]:checked + label + label + input[id$='Custom'] { margin: 0 0 0 11px; display:inline;}
+	**/
+	input[type="radio"] + label + label + input[id$='Custom']{
+		margin: 0 0 0 11px;
+		display: inline;
+    transition: opacity 0.2s ease-out;
+		-moz-transition: opacity 0.2s ease-out;
+		-webkit-transition: opacity 0.2s ease-out;
+		-ms-transition: opacity 0.2s ease-out;
+    opacity: 0; 
+    overflow: hidden;
+	}
+	
+	input[type="radio"]:checked + label + label + input[id$='Custom']{
+    transition: opacity 0.5s ease-out;
+		-moz-transition: opacity 0.5s ease-out;
+		-webkit-transition: opacity 0.5s ease-out;
+		-ms-transition: opacity 0.5s ease-out;
+		opacity: 1;
+	}
+	
+	
+	.checkbox-group-h, .radio-group-h{
+		padding: 0 10px 0 0;
+		width: 100%;
+		float: left; 
+		white-space:nowrap;
+	}
+	
+	 .radio-group-h, .radio-group-v > div + div{
+		height:2em;
+		line-height:2em;
+	}
+	
+	
+	.checkbox-group-h > div + div, .radio-group-h > div + div{
+		min-width: 150px;
+		float:left;	    
+    -moz-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;
+	}
+	
+	.checkbox-group-v > div + div + div, .radio-group-v > div + div + div{
+		position: relative;
+		left:200px;
+		padding: 0 10px 0px 10px;
+	}
+	
+	.checkbox-group-v > div + div, .checkbox-group-v > div + div + div, .radio-group-v > div + div + div{
+		height:2em;
+	}
+	
+	/********** Progress Indicators **********************/ 
+	
+	.progress-indicator{
+		font-size: 10pt;
+		text-align:right;
+		width:10%;
+		/**padding: 10px 0 10px 0;**/
+		height: 30px;
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.progress-indicator > div{
+		width: 70px !important;
+		height: 7px;
+		border-radius: 0px;
+		border: 1px solid #959696;
+		float:right;
+		margin-left: 10px;
+		top: 15% !important;
+		position: relative !important;	
+	}	
+	
+	.progress-indicator > img{
+		margin-right: 10px;
+		width: 25px;
+		vertical-align: middle;
+	}		
+	
+	.progress-indicator > div > div{
+		border-radius: 0px;	
+		height: 5px !important;
+		position:relative;
+		margin: 1px !important;
+		background:none !important;
+		background-color:#6391E4 !important;
+		border: none;
+	}		
+	
+	/********** Buttons **********************/ 
+	
+	input[type="submit"]{
+		margin: 10px 0 0 10px;
+		float:right;
+		display:table-cell;
+		box-shadow: none;
+		background-color: #e3e3e3;
+		color: #5b5b5b;
+		padding: 0px 20px; 0px; 20px;
+		font-size:10pt;
+		font-weight: 600;
+		border: 1px solid #dadada;
+	}	
+	
+		input[type="submit"]:active, input[type="submit"]:hover{
+		background-color: #71A3ff;
+		color: #FFF;
+		border: 1px solid #92b9ff;
+		font-weight: 600;
+	}
+	
+	
+	.field-label{
+		padding: 0 10px 0  0;
+		vertical-align:top;
+		float:left;
+		border 1px solid #000;
+		width: 200px;
+		font-size: 12pt;
+	}
+ 
